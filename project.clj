@@ -1,4 +1,4 @@
-(defproject binaryage/chromex-sample "0.1.0-SNAPSHOT"
+(defproject thai2english "1.0.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/clojurescript "1.7.170"]
                  [org.clojure/core.async "0.2.374"]
@@ -35,7 +35,7 @@
                            {:source-paths ["src/dev"
                                            "src/figwheel"
                                            "src/background"]
-                            :compiler     {:output-to             "resources/unpacked/compiled/background/chromex-sample.js"
+                            :compiler     {:output-to             "resources/unpacked/compiled/background/thai2english.js"
                                            :output-dir            "resources/unpacked/compiled/background"
                                            :asset-path            "compiled/background"
                                            :optimizations         :none
@@ -47,7 +47,7 @@
                            :content-script
                            {:source-paths ["src/dev"
                                            "src/content_script"]
-                            :compiler     {:output-to             "resources/unpacked/compiled/content_script/chromex-sample.js"
+                            :compiler     {:output-to             "resources/unpacked/compiled/content_script/thai2english.js"
                                            :output-dir            "resources/unpacked/compiled/content_script"
                                            :asset-path            "compiled/content_script"
                                            :optimizations         :whitespace                                                 ; content scripts cannot do eval / load script dynamically
@@ -55,7 +55,7 @@
                                            :pretty-print          true
                                            :compiler-stats        true
                                            :cache-analysis        true
-                                           :source-map            "resources/unpacked/compiled/content_script/chromex-sample.js.map"
+                                           :source-map            "resources/unpacked/compiled/content_script/thai2english.js.map"
                                            :source-map-timestamp  true}}}}}
              :checkouts
              {:cljsbuild {:builds

@@ -4,7 +4,6 @@
             [chromex.logging :refer-macros [log info warn error group group-end]]
             [chromex.chrome-event-channel :refer [make-chrome-event-channel]]
             [chromex.protocols :refer [post-message! get-sender get-name]]
-            [chromex.ext.tabs :as tabs]
             [chromex.ext.runtime :as runtime]
             [ajax.core :refer [POST]]
             [cognitect.transit :as t]))
@@ -56,6 +55,7 @@
   (add-client! client)
   (run-client-message-loop! client))
 
+
 ; -- main event loop --------------------------------------------------------------------------------------------------------
 
 (defn process-chrome-event [event-num event]
@@ -72,7 +72,6 @@
 
 (defn boot-chrome-event-loop! []
   (let [chrome-event-channel (make-chrome-event-channel (chan))]
-    (tabs/tap-all-events chrome-event-channel)
     (runtime/tap-all-events chrome-event-channel)
     (run-chrome-event-loop! chrome-event-channel)))
 

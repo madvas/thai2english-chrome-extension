@@ -1,7 +1,3 @@
-/* this manifest is for development only
-   we include all files individually
-   also we allow unsafe eval for figwheel
-*/
 {
   "name": "thai2english",
   "version": "1.0.0",
@@ -17,7 +13,7 @@
         "<all_urls>"
       ],
       "js": [
-        "compiled/content_script/chromex-sample.js",
+        "compiled/content_script/thai2english.js",
         "content-script.js"
       ],
       "css": [
