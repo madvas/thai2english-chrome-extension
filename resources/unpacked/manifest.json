@@ -1,0 +1,37 @@
+/* this manifest is for development only
+   we include all files individually
+   also we allow unsafe eval for figwheel
+*/
+{
+  "name": "thai2english",
+  "version": "1.0.0",
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "compiled/content_script/chromex-sample.js",
+        "content-script.js"
+      ],
+      "css": [
+        "content-script.css"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "page": "background.html",
+    "persistent": false
+  },
+  "permissions": [
+    "http://www.thai2english.com/"
+  ],
+  "manifest_version": 2
+}
