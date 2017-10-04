@@ -9,7 +9,7 @@
             [cognitect.transit :as t]))
 
 (def clients (atom []))
-(def url-thai->en "http://www.thai2english.com/ajax/AddNewQueryDoSpacing.aspx")
+(def url-thai->en "https://www.thai2english.com/ajax/processquery")
 (def reader (t/reader :json))
 (def writer (t/writer :json))
 
