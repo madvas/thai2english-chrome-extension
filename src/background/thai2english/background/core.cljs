@@ -9,7 +9,7 @@
             [cognitect.transit :as t]))
 
 (def clients (atom []))
-(def url-thai->en "https://www.thai2english.com/ajax/processquery")
+(def url-thai->en "https://api.thai2english.com/translation")
 (def reader (t/reader :json))
 (def writer (t/writer :json))
 
