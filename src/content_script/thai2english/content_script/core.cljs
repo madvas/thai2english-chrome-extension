@@ -12,6 +12,7 @@
             [clojure.string :as str]
             [cognitect.transit :as t]))
 
+(enable-console-print!)
 
 (def reader (t/reader :json))
 (def writer (t/writer :json))
@@ -24,7 +25,7 @@
 
 (defn style [& info]
   (apply str (map #(let [[kwd val] %]
-                    (str (name kwd) ":" val "; "))
+                     (str (name kwd) ":" val "; "))
                   (apply hash-map info))))
 
 (defn target-ancestor? [ancestor e]
@@ -67,9 +68,9 @@
   (let [el (html [:div#tran-prompt {:class "hidden"} ""])]
     (append-to-body! el)))
 
-(defn request-translation [text background-port coords _]
-  (post-message! background-port (t/write writer {:type   :th->en
-                                                  :text   text
+(defn request-translation [text background-port coords]
+  (post-message! background-port (t/write writer {:type :th->en
+                                                  :text text
                                                   :coords coords})))
 
 (defn position-el! [el page-x page-y]
@@ -78,7 +79,9 @@
 (defn show-prompt-el! [el page-x page-y selection background-port]
   (position-el! el page-x page-y)
   (d/remove-class! el "hidden")
-  (de/listen-once! el :click (partial request-translation selection background-port [page-x page-y])))
+  (de/listen-once! el :click (fn [e]
+                               (.stopPropagation (.-evt e))
+                               (request-translation selection background-port [page-x page-y]))))
 
 (defn hide-prompt-el! [el]
   (d/add-class! el "hidden"))

@@ -46,6 +46,10 @@
     border-bottom: #ddd 1px dashed;
 }
 
+#tran-result tr td:first-child {
+    font-size: 15px;
+}
+
 #tran-result tr:last-child {
     border-bottom: none;
 }

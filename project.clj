@@ -1,4 +1,4 @@
-(defproject thai2english "1.0.0-SNAPSHOT"
+(defproject thai2english "1.0.5"
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/clojurescript "1.7.170"]
                  [org.clojure/core.async "0.2.374"]
